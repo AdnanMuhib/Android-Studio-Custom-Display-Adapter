@@ -28,13 +28,15 @@ public class MainActivity extends AppCompatActivity {
             R.drawable.flag_spain,
             R.drawable.flag_us};
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         mListView = (ListView) findViewById(R.id.listView);
 
-
+        final String[] countryDetails = getResources().getStringArray(R.array.countryDetailsArray);
         FlagAdapter myAdapter = new FlagAdapter(MainActivity.this, countryNames, countryFlags);
         mListView.setAdapter(myAdapter);
 
@@ -56,6 +58,7 @@ public class MainActivity extends AppCompatActivity {
                 detail.putExtra("Name", countryNames[i]);
               //  System.out.println(countryFlags[i]);
                 detail.putExtra("Flag", countryFlags[i]);
+                detail.putExtra("Description",countryDetails[i]);
                 startActivity(detail);
             }
         });

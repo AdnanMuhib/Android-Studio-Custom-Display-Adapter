@@ -39,11 +39,12 @@ public class display extends AppCompatActivity {
         String Name=getIntent().getStringExtra("Name");
 
         int Flag=getIntent().getIntExtra("Flag",-1);
+        String Description = getIntent().getStringExtra("Description");
 
         if(Name!=null && Flag!=-1)
         {
             mText.setText(Name);
-            mContent.setText(R.string.article_content);
+            mContent.setText(Description);
             mImageView.setImageResource(Flag);
 
         }
